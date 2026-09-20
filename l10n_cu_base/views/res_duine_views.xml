@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_duine_view_list" model="ir.ui.view">
+        <field name="name">res.duine.list</field>
+        <field name="model">res.duine</field>
+        <field name="arch" type="xml">
+            <list import="1" create="1">
+                <field name="code"/><field name="name"/><field name="acronym"/><field name="dpa_code"/><field name="cnae_code"/><field name="organization_form_name"/>
+            </list>
+        </field>
+    </record>
+    <record id="res_duine_view_form" model="ir.ui.view">
+        <field name="name">res.duine.form</field>
+        <field name="model">res.duine</field>
+        <field name="arch" type="xml">
+            <form string="Entidad DUINE">
+                <sheet>
+                    <group>
+                        <group><field name="code"/><field name="name"/><field name="acronym"/><field name="active"/></group>
+                        <group><field name="source_date"/><field name="dpa_code"/><field name="municipality_id"/><field name="parent_code"/></group>
+                    </group>
+                    <group string="Direccion"><field name="address"/></group>
+                    <group string="Actividad economica">
+                        <group><field name="nae_code"/><field name="nae_name"/></group>
+                        <group><field name="cnae_code"/><field name="cnae_name"/><field name="cnae_id"/></group>
+                    </group>
+                    <group string="Forma organizativa"><field name="organization_form_code"/><field name="organization_form_name"/></group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="res_duine_action" model="ir.actions.act_window">
+        <field name="name">Directorio DUINE</field><field name="res_model">res.duine</field><field name="view_mode">list,form</field>
+    </record>
+    <menuitem id="res_duine_menu" name="Directorio DUINE" parent="contacts.res_partner_menu_config" action="res_duine_action" sequence="22"/>
+</odoo>

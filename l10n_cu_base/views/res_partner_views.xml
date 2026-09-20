@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_partner_view_form_l10n_cu" model="ir.ui.view">
+        <field name="name">res.partner.form.l10n.cu</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="state_id" position="after">
+                <field name="municipality_id" invisible="country_code != 'CU'"/>
+            </field>
+            <xpath expr="//notebook" position="inside">
+                <page string="Cuba" name="l10n_cu" invisible="country_code != 'CU'">
+                    <group>
+                        <group>
+                            <field name="is_company" string="Persona juridica"/>
+                            <field name="l10n_cu_nit"/>
+                            <field name="l10n_cu_ci" invisible="is_company"/>
+                            <field name="l10n_cu_reeup" invisible="not is_company"/>
+                            <field name="l10n_cu_registry_number" invisible="not is_company"/>
+                            <field name="l10n_cu_rcc_licence" invisible="not is_company"/>
+                            <field name="l10n_cu_entity_type" invisible="not is_company"/>
+                        </group>
+                        <group>
+                            <field name="l10n_cu_duine_id"/>
+                            <field name="l10n_cu_primary_cnae_id"/>
+                            <field name="l10n_cu_cnae_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="base.cu" model="res.country">
+        <field name="address_format">%(street)s
+%(street2)s
+%(city)s
+%(municipality_name)s %(state_name)s %(zip)s
+%(country_name)s</field>
+        <field name="state_required" eval="True"/>
+    </record>
+</odoo>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="base.CUP" model="res.currency">
+        <field name="active" eval="True"/>
+    </record>
+    <record id="base.cu" model="res.country">
+        <field name="currency_id" ref="base.CUP"/>
+    </record>
+</odoo>

@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_res_municipality_user,res.municipality user,model_res_municipality,base.group_user,1,0,0,0
+access_res_municipality_system,res.municipality system,model_res_municipality,base.group_system,1,1,1,1
+access_res_cnae_user,res.cnae user,model_res_cnae,base.group_user,1,0,0,0
+access_res_cnae_system,res.cnae system,model_res_cnae,base.group_system,1,1,1,1
+access_res_duine_user,res.duine user,model_res_duine,base.group_user,1,0,0,0
+access_res_duine_system,res.duine system,model_res_duine,base.group_system,1,1,1,1
+access_res_bank_branch_user,res.bank.branch user,model_res_bank_branch,base.group_user,1,0,0,0
+access_res_bank_branch_system,res.bank.branch system,model_res_bank_branch,base.group_system,1,1,1,1
