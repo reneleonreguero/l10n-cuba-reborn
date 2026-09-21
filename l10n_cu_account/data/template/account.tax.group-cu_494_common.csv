@@ -1,0 +1,3 @@
+"id","name","country_id","tax_payable_account_id","tax_receivable_account_id"
+"tgrp_iventas","Impuesto sobre las Ventas","base.cu","account_440_0001",""
+"tgrp_is","Impuesto sobre Ingresos Personales (retenciones)","base.cu","account_440_0005","account_440_0005"

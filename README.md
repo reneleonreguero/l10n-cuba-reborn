@@ -5,7 +5,7 @@ bajo AGPL-3. El proyecto no depende de localizaciones de terceros.
 
 ## Estado
 
-La fase F0 proporciona solamente los datos maestros y modelos comunes:
+La fase F0 proporciona los datos maestros y modelos comunes:
 
 - perfil cubano de contactos y companias;
 - NIT sobre el campo fiscal estandar `vat` de Odoo;
@@ -18,8 +18,13 @@ La fase F0 proporciona solamente los datos maestros y modelos comunes:
   Establecimientos (DUINE);
 - directorio institucional y de sucursales bancarias.
 
-No incluye plan contable, impuestos, informes financieros, nomina ni
-contabilidad gubernamental. Esas funciones pertenecen a fases posteriores.
+La fase F1 incorpora `l10n_cu_account`, con el plan contable empresarial de la
+Resolucion 494/2016 y variantes para empresas estatales y entidades privadas,
+y `l10n_cu_account_menu`, con la aplicacion Contabilidad separada de
+Facturacion (plan contable, diarios, asientos y asistente de cierre anual
+contra la cuenta 999 Resultado).
+La automatizacion tributaria, los informes financieros, la nomina y la
+contabilidad gubernamental pertenecen a fases posteriores.
 
 La variante de idioma Espanol de Cuba (`es_CU`) esta planeada y documentada en
 `docs/`, pendiente de una fase posterior.

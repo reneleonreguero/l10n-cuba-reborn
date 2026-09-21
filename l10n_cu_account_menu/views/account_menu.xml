@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="menu_cu_accounting_root" model="ir.ui.menu">
+        <field name="name">Contabilidad</field>
+        <field name="sequence">52</field>
+        <field name="web_icon">account,static/description/icon.png</field>
+        <field name="group_ids" eval="[(4, ref('account.group_account_user'))]"/>
+    </record>
+
+    <record id="action_cu_chart" model="ir.actions.act_window">
+        <field name="name">Plan contable</field>
+        <field name="res_model">account.account</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_cu_journals" model="ir.actions.act_window">
+        <field name="name">Diarios</field>
+        <field name="res_model">account.journal</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_cu_moves" model="ir.actions.act_window">
+        <field name="name">Asientos</field>
+        <field name="res_model">account.move</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('move_type', 'in', ('entry',))]</field>
+    </record>
+
+    <menuitem id="menu_cu_chart"
+        name="Plan contable"
+        parent="menu_cu_accounting_root"
+        action="action_cu_chart"
+        groups="account.group_account_user"
+        sequence="10"/>
+    <menuitem id="menu_cu_journals"
+        name="Diarios"
+        parent="menu_cu_accounting_root"
+        action="action_cu_journals"
+        groups="account.group_account_user"
+        sequence="20"/>
+    <menuitem id="menu_cu_moves"
+        name="Asientos"
+        parent="menu_cu_accounting_root"
+        action="action_cu_moves"
+        groups="account.group_account_user"
+        sequence="30"/>
+</odoo>
