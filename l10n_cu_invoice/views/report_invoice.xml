@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_invoice_document_cu" inherit_id="account.report_invoice_document">
+        <!-- Datos fiscales cubanos antes del cuerpo de la factura -->
+        <xpath expr="//div[hasclass('clearfix') and hasclass('invoice_main')]" position="before">
+            <div class="row mb-2" t-if="o.company_id.country_id.code == 'CU'" name="l10n_cu_emisor">
+                <div class="col-6">
+                    <strong>NIT del emisor:</strong>
+                    <span t-field="o.company_id.partner_id.vat"/>
+                    <t t-if="o.company_id.l10n_cu_reeup">
+                        <br/><strong>REEUP:</strong>
+                        <span t-field="o.company_id.l10n_cu_reeup"/>
+                    </t>
+                </div>
+                <div class="col-6" name="l10n_cu_ci">
+                    <strong>Receptor:</strong>
+                    <span t-field="o.partner_id.name"/>
+                    <br/>
+                    <t t-if="o.partner_id.vat">
+                        <strong>NIT:</strong>
+                        <span t-field="o.partner_id.vat"/>
+                    </t>
+                    <t t-if="o.partner_id.l10n_cu_ci">
+                        <strong>Carné de identidad:</strong>
+                        <span t-field="o.partner_id.l10n_cu_ci"/>
+                    </t>
+                </div>
+            </div>
+        </xpath>
+        <!-- Nota legal cubana al pie del documento -->
+        <xpath expr="//div[@name='comment']" position="after">
+            <div class="text-muted mt-2" t-if="o.company_id.country_id.code == 'CU'" name="l10n_cu_nota">
+                Documento emitido con los datos fiscales registrados (NIT/CI).
+                Consérvelo para fines tributarios.
+            </div>
+        </xpath>
+    </template>
+</odoo>

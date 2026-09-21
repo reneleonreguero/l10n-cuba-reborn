@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_l10n_cu_payroll_contract_tree" model="ir.ui.view">
+        <field name="name">l10n.cu.payroll.contract.tree</field>
+        <field name="model">l10n_cu_payroll.contract</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="wage"/>
+                <field name="active"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_l10n_cu_payroll_contract_form" model="ir.ui.view">
+        <field name="name">l10n.cu.payroll.contract.form</field>
+        <field name="model">l10n_cu_payroll.contract</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="company_id"/>
+                    <field name="wage"/>
+                    <field name="date_start"/>
+                    <field name="active"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_l10n_cu_payroll_contract" model="ir.actions.act_window">
+        <field name="name">Fichas salariales</field>
+        <field name="res_model">l10n_cu_payroll.contract</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="view_l10n_cu_payroll_slip_tree" model="ir.ui.view">
+        <field name="name">l10n.cu.payroll.slip.tree</field>
+        <field name="model">l10n_cu_payroll.slip</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="employee_id"/>
+                <field name="wage"/>
+                <field name="ss_worker"/>
+                <field name="net"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_l10n_cu_payroll_slip_form" model="ir.ui.view">
+        <field name="name">l10n.cu.payroll.slip.form</field>
+        <field name="model">l10n_cu_payroll.slip</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="%(l10n_cu_payroll.report_payslip_action)d"
+                        string="Imprimir" type="action"/>
+                </header>
+                <group>
+                    <field name="batch_id"/>
+                    <field name="contract_id"/>
+                    <field name="employee_id"/>
+                    <field name="wage"/>
+                    <field name="vacation_rate"/>
+                    <field name="ss_worker_rate"/>
+                    <field name="ss_employer_rate"/>
+                    <field name="other_deductions"/>
+                </group>
+                <group string="Calculado">
+                    <field name="vacation_amount"/>
+                    <field name="ss_worker"/>
+                    <field name="ss_employer"/>
+                    <field name="net"/>
+                    <field name="state"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_l10n_cu_payroll_batch_tree" model="ir.ui.view">
+        <field name="name">l10n.cu.payroll.batch.tree</field>
+        <field name="model">l10n_cu_payroll.batch</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="state"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_l10n_cu_payroll_batch_form" model="ir.ui.view">
+        <field name="name">l10n.cu.payroll.batch.form</field>
+        <field name="model">l10n_cu_payroll.batch</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_post"
+                        string="Contabilizar"
+                        type="object"
+                        class="btn-primary"
+                        invisible="state == 'done'"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <group>
+                    <field name="name"/>
+                    <field name="company_id"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="journal_id"/>
+                    <field name="expense_account_id"/>
+                    <field name="move_id"/>
+                </group>
+                <field name="slip_ids"/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_l10n_cu_payroll_batch" model="ir.actions.act_window">
+        <field name="name">Lotes de nómina</field>
+        <field name="res_model">l10n_cu_payroll.batch</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_cu_payroll_root"
+        name="Nómina"
+        parent="l10n_cu_account_menu.menu_cu_accounting_root"
+        groups="account.group_account_user"
+        sequence="50"/>
+    <menuitem id="menu_cu_payroll_contract"
+        name="Fichas salariales"
+        parent="menu_cu_payroll_root"
+        action="action_l10n_cu_payroll_contract"
+        groups="account.group_account_user"
+        sequence="10"/>
+    <menuitem id="menu_cu_payroll_batch"
+        name="Lotes de nómina"
+        parent="menu_cu_payroll_root"
+        action="action_l10n_cu_payroll_batch"
+        groups="account.group_account_user"
+        sequence="20"/>
+</odoo>

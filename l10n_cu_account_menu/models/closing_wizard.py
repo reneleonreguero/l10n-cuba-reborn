@@ -79,7 +79,7 @@ class L10nCuClosingWizard(models.TransientModel):
             raise UserError(
                 _("La compañía no tiene la cuenta 999 Resultado.")
             )
-        Account = self.env["account.account"]
+        Account = self.env["account.account"].with_company(company)
         lines = []
         for account_id, balance in sorted(balances.items()):
             account = Account.browse(account_id)

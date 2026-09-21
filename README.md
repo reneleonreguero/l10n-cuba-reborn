@@ -23,6 +23,14 @@ Resolucion 494/2016 y variantes para empresas estatales y entidades privadas,
 y `l10n_cu_account_menu`, con la aplicacion Contabilidad separada de
 Facturacion (plan contable, diarios, asientos y asistente de cierre anual
 contra la cuenta 999 Resultado).
+
+La fase F2a incorpora `l10n_cu_invoice`, con la factura cubana: validaciones
+de NIT/CI al publicar y formato impreso con datos fiscales del emisor y del
+receptor.
+
+La fase F2b incorpora `l10n_cu_payroll`, con fichas salariales, lotes
+mensuales, contabilización automática (455, 460, 440.0008, 492) y reporte
+impreso de nómina.
 La automatizacion tributaria, los informes financieros, la nomina y la
 contabilidad gubernamental pertenecen a fases posteriores.
 
